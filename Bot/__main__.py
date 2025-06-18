@@ -1,3 +1,18 @@
+from flask import Flask
+from threading import Thread  # ✅ Add this line
+
+# == Flask App ==
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return '✅ Flask is running! Bot should be running too.'
+
+def run_flask():
+    app.run(host='0.0.0.0', port=8000)
+
+# Start Flask in a separate thread
+flask_thread = Thread(target=run_flask)
 import os
 import logging
 from . import client
@@ -25,3 +40,4 @@ if __name__ == '__main__':
     if not os.path.isdir(client.config.DOWNLOAD_LOCATION):
         os.makedirs(client.config.DOWNLOAD_LOCATION)
     client.run(main())
+    flask_thread.start()
