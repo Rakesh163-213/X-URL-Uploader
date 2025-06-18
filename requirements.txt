@@ -1,4 +1,4 @@
-₹git+https://github.com/X-Gorn/pyrogram.git@dev
+#git+https://github.com/X-Gorn/pyrogram.git@dev
 TgCrypto
 pyrogram
 aiohttp
