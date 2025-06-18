@@ -10,9 +10,9 @@ def home():
 
 def run_flask():
     app.run(host='0.0.0.0', port=8000)
-flask_thread.start()
 # Start Flask in a separate thread
 flask_thread = Thread(target=run_flask)
+flask_thread.start()
 import os
 import logging
 from . import client
